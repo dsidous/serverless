@@ -96,6 +96,11 @@ class MoviesService extends RESTDataSource {
     return results;
   }
 
+  async search(query) {
+    const { results } = await this.get(`search/multi?query=${query}`);
+    return results;
+  }
+
 }
 
 module.exports = MoviesService;

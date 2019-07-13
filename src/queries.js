@@ -462,6 +462,21 @@ type Cast {
   profile_path: String
   order: Int
 }
+
+extend type Query {
+  search(query: String!): [Search!] 
+}
+
+type Search {
+  id: Int
+  media_type: String
+  name: String
+  title: String
+  profile_path: String
+  poster_path: String
+  release_date: String
+  first_air_date: String
+}
 `;
 
 export default queries;

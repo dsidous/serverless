@@ -44,7 +44,11 @@ const resolvers = {
       return dataSources.moviesService.getTopPeople(query);
     },
     genres: (_, __, { dataSources }) => dataSources.moviesService.getGenres(),
-    genresTv: (_, __, { dataSources }) => dataSources.moviesService.getTvGenres()
+    genresTv: (_, __, { dataSources }) => dataSources.moviesService.getTvGenres(),
+    search: (parent, args, { dataSources }) => {
+      const { query } = args;
+      return dataSources.moviesService.search(query);
+    }
   },
   Movie: {
     genre_names: (parent, args, { dataSources }) => dataSources.moviesService.getGenreNames(parent.genre_ids)
